@@ -27,7 +27,7 @@ body {
     background-color: var(--azul-fundo-base);
     color: var(--texto-claro);
     line-height: 1.6;
-    padding-top: 90px; /* Evita sobreposição com o topo fixo */
+    padding-top: 0; /* Evita sobreposição com o topo fixo */
 }
 
 p, li {
@@ -35,12 +35,12 @@ p, li {
 }
 
 /* ==========================================================================
-   TOPO DO SITE (MENU SUPERIOR)
+   TOPO DO SITE (MENU SUPERIOR TRANSPARENTE E INTEGRADO)
    ========================================================================== */
 .site-header {
-    background-color: var(--azul-escuro-topo);
-    background-image: linear-gradient(180deg, var(--azul-escuro-topo) 0%, #010d1a 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(2, 15, 27, 0.85); /* Fundo semi-transparente para ver a textura passar por baixo */
+    backdrop-filter: blur(8px); /* Efeito de vidro esfumaçado moderno */
+    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
     padding: 15px 0;
     width: 100%;
     position: fixed;
@@ -58,9 +58,56 @@ p, li {
     padding: 0 30px;
 }
 
+.logo-area img {
+    height: 65px; 
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-area img:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   BLOCO CENTRAL PRINCIPAL (BANNER TOTAL COM TEXTURA DE COURO)
+   ========================================================================== */
+.hero-section {
+    padding: 0; /* Remove os espaçamentos internos anteriores */
+    margin-top: 0; /* Cola o bloco no topo absoluto da tela */
+    width: 100%;
+    min-height: 100vh; /* Faz o banner ocupar toda a altura inicial da tela do usuário */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--azul-escuro-topo);
+}
+
+.hero-container {
+    max-width: 100%; /* Permite que o container ocupe toda a largura */
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Faz a imagem de couro por inteiro preencher o cabeçalho perfeitamente */
+.main-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta e adapta a imagem de couro sem distorcê-la em qualquer tela */
+    display: block;
+}
+
+
 /* Ajuste da Mini Logo no Menu Superior */
 .logo-area img {
-    height: 45px; 
+    height: 65px; 
     width: auto;
     display: block;
 }
