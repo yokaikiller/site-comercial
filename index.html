@@ -3,187 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advocacia Especializada | Nome da Advogada</title>
+    <title>Dra. Brenda Souza Silva | Advocacia Especializada</title>
     <style>
-        /* Cores e Estilo Geral */
+        /* ==========================================================================
+           CONFIGURAÇÕES DE CORES E IDENTIDADE (IGUAL AO MODELO)
+           ========================================================================== */
         :root {
-            --azul-escuro: #111e38;
-            --dourado: #c5a059;
-            --cinza-claro: #f4f6f9;
-            --texto: #333333;
-            --branco: #ffffff;
+            --azul-escuro-topo: #020f1b;    /* Tom escuro do menu superior */
+            --azul-fundo-site: #01070e;    /* Fundo geral da página */
+            --dourado-texto: #c5a059;      /* Tom clássico das letras da logo */
+            --texto-menu: #cbd5e1;         /* Cor dos links do menu */
+            --branco-puro: #ffffff;
+            --cinza-divisor: rgba(197, 160, 89, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif; /* Mantém a tipografia sofisticada e clássica */
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            color: var(--texto);
+            background-color: var(--azul-fundo-site);
+            color: var(--texto-menu);
             line-height: 1.6;
-            background-color: var(--branco);
+            padding-top: 90px; /* Impede que o topo fixo cubra o conteúdo */
         }
 
-        /* Cabeçalho e Menu */
-        header {
-            background-color: var(--azul-escuro);
-            padding: 20px 5%;
+        /* Modificação fina para textos longos de leitura */
+        p, li {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* ==========================================================================
+           TOPO DO SITE (MENU SUPERIOR IDÊNTICO À IMAGEM)
+           ========================================================================== */
+        .site-header {
+            background-color: var(--azul-escuro-topo);
+            background-image: linear-gradient(180deg, #031424 0%, #010d1a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 0 30px;
         }
 
-        .logo {
-            color: var(--dourado);
-            font-size: 24px;
-            font-weight: bold;
+        /* Mini Logotipo no Canto Esquerdo do Menu */
+        .mini-logo-area a {
             text-decoration: none;
-        }
-
-        nav a {
-            color: var(--branco);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--dourado);
-        }
-
-        /* Seção Principal (Hero) */
-        .hero {
-            background: linear-gradient(rgba(17, 30, 56, 0.85), rgba(17, 30, 56, 0.85)), url('https://unsplash.com') no-repeat center center/cover;
-            color: var(--branco);
-            height: 70vh;
             display: flex;
             flex-direction: column;
+        }
+
+        .mini-logo-title {
+            color: var(--branco-puro);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .mini-logo-subtitle {
+            color: var(--dourado-texto);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* Links de Navegação do Centro */
+        .navigation-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .navigation-menu a {
+            color: var(--texto-menu);
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .navigation-menu a:hover,
+        .navigation-menu a.active {
+            color: var(--branco-puro);
+        }
+
+        /* Linha dourada embaixo do menu ativo (como na foto) */
+        .navigation-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--dourado-texto);
+        }
+
+        /* Botão Dourado Superior Retangular */
+        .btn-schedule-top {
+            background: linear-gradient(135deg, #c5a059 0%, #9e7d3b 100%);
+            color: #020f1b;
+            text-decoration: none;
+            padding: 10px 22px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-schedule-top:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* ==========================================================================
+           BLOCO CENTRAL (BANNER HERO COM A SUA ÚLTIMA LOGO DA BALANÇA)
+           ========================================================================== */
+        .hero-section {
+            background-color: #031424;
+            background-image: radial-gradient(circle at center, #06203a 0%, #010b14 100%);
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--cinza-divisor);
+            display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 42px;
+        .hero-container {
+            max-width: 800px;
+            background-color: rgba(3, 20, 36, 0.6); /* Moldura suave para a logo */
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        /* Imagem da sua Logo Principal Centro */
+        .main-logo-img {
+            max-width: 320px; /* Tamanho proporcional perfeito para a balança */
+            width: 100%;
+            height: auto;
             margin-bottom: 20px;
-            color: var(--branco);
+            display: inline-block;
         }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-
-        .btn-cta {
-            background-color: var(--dourado);
-            color: var(--azul-escuro);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .btn-cta:hover {
-            background-color: #b38f4b;
-            color: var(--branco);
-        }
-
-        /* Seções de Conteúdo */
-        section {
+        /* ==========================================================================
+           CONTEÚDO DO SITE (DEMAIS SEÇÕES)
+           ========================================================================== */
+        .site-section {
             padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
-            color: var(--azul-escuro);
+            font-size: 28px;
+            color: var(--branco-puro);
             margin-bottom: 40px;
-            position: relative;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--dourado);
-            margin: 10px auto 0;
+            width: 40px;
+            height: 1px;
+            background-color: var(--dourado-texto);
+            margin: 15px auto 0;
         }
 
-        /* Áreas de Atuação (Cards) */
-        .servicos {
-            background-color: var(--cinza-claro);
-        }
-
+        /* Grid de Serviços */
         .grid-servicos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .card {
-            background-color: var(--branco);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--dourado);
+        .card-servico {
+            background-color: #031424;
+            padding: 35px 25px;
+            border-radius: 3px;
+            border-top: 2px solid var(--dourado-texto);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        .card h3 {
-            color: var(--azul-escuro);
-            margin-bottom: 15px;
+        .card-servico h3 {
+            color: var(--branco-puro);
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: normal;
         }
 
-        /* Sobre Mim */
-        .sobre-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
+        .card-servico p {
+            font-size: 14px;
+            color: var(--texto-menu);
         }
 
-        .sobre-texto {
-            flex: 1;
-            min-width: 300px;
+        /* Caixa de Contato */
+        .box-contato {
+            background-color: #020f1b;
+            border: 1px solid var(--cinza-divisor);
+            padding: 40px;
+            text-align: center;
+            border-radius: 3px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .box-contato p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .box-contato strong {
+            color: var(--dourado-texto);
         }
 
         /* Botão do WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50px;
+            color: #ffffff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            transition: transform 0.2s ease;
         }
 
-        /* Rodapé */
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+        }
+
+        /* Rodapé Legal */
         footer {
-            background-color: var(--azul-escuro);
-            color: var(--branco);
+            background-color: #01070e;
+            border-top: 1px solid var(--cinza-divisor);
             text-align: center;
-            padding: 30px;
-            font-size: 14px;
+            padding: 35px 20px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* ==========================================================================
+           RESPONSIVIDADE (MOBILE)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 150px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px;
+            }
+
+            .navigation-menu ul {
+                gap: 20px;
+            }
+
+            .hero-section {
+                padding: 50px 10px;
+            }
+
+            .hero-container {
+                padding: 25px 15px;
+            }
         }
     </style>
 </head>
