@@ -1,0 +1,316 @@
+/* ==========================================================================
+   CONFIGURAÇÕES DE CORES E RESET (ESTILO DA IMAGEM)
+   ========================================================================== */
+:root {
+    --azul-fundo-base: #010a12;       /* Fundo total do site */
+    --azul-escuro-topo: #031424;     /* Cor de fundo do menu idêntica ao modelo */
+    --azul-gradiente-fim: #061f38;
+    --dourado-principal: #c5a059;    /* Tom elegante das letras e bordas */
+    --dourado-gradiente-fim: #9e7d3b;
+    --texto-claro: #cbd5e1;
+    --texto-puro: #ffffff;
+    --cinza-divisor: rgba(197, 160, 89, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif; /* Fonte clássica de advocacia */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--azul-fundo-base);
+    color: var(--texto-claro);
+    line-height: 1.6;
+    padding-top: 90px; /* Evita sobreposição com o topo fixo */
+}
+
+p, li {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Melhor legibilidade */
+}
+
+/* ==========================================================================
+   TOPO DO SITE (MENU SUPERIOR)
+   ========================================================================== */
+.site-header {
+    background-color: var(--azul-escuro-topo);
+    background-image: linear-gradient(180deg, var(--azul-escuro-topo) 0%, #010d1a 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+/* Ajuste da Mini Logo no Menu Superior */
+.logo-area img {
+    height: 45px; 
+    width: auto;
+    display: block;
+}
+
+/* Menu Centralizado */
+.navigation-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.navigation-menu a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.navigation-menu a:hover,
+.navigation-menu a.active {
+    color: var(--texto-puro);
+}
+
+/* Traço dourado sob o menu ativo (Conforme modelo da imagem) */
+.navigation-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--dourado-principal);
+}
+
+/* Botão de Agendamento Superior Retangular Dourado */
+.btn-schedule {
+    background: linear-gradient(135deg, var(--dourado-principal) 0%, var(--dourado-gradiente-fim) 100%);
+    color: var(--azul-escuro-topo);
+    text-decoration: none;
+    padding: 10px 22px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.btn-schedule:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   BLOCO CENTRAL PRINCIPAL (MOLDURA HERO)
+   ========================================================================== */
+.hero-section {
+    background-color: var(--azul-escuro-topo);
+    background-image: radial-gradient(circle at center, #06203a 0%, #010b14 100%);
+    padding: 90px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--cinza-divisor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 850px;
+    background-color: rgba(3, 20, 36, 0.5); 
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+/* Tamanho proporcional do quadro principal da imagem */
+.main-logo-img {
+    max-width: 550px; 
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   SEÇÕES DE TEXTO E CONTEÚDO
+   ========================================================================== */
+.site-section {
+    padding: 80px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-alternativo {
+    background-color: rgba(3, 20, 36, 0.3);
+    max-width: 100%;
+    border-top: 1px solid var(--cinza-divisor);
+    border-bottom: 1px solid var(--cinza-divisor);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    color: var(--texto-puro);
+    margin-bottom: 40px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--dourado-principal);
+    margin: 12px auto 0;
+}
+
+/* Cards das Áreas de Atuação */
+.grid-servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card-servico {
+    background-color: #031424;
+    background-image: linear-gradient(135deg, #031424 0%, #05223d 100%);
+    padding: 35px 25px;
+    border-radius: 3px;
+    border-top: 2px solid var(--dourado-principal);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card-servico h3 {
+    color: var(--texto-puro);
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: normal;
+}
+
+.card-servico p {
+    font-size: 14px;
+    color: var(--texto-claro);
+}
+
+/* Texto Quem Somos */
+.texto-apresentacao {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: var(--texto-claro);
+}
+
+/* Caixa de Informações de Contato */
+.box-contato {
+    background-color: #020f1b;
+    border: 1px solid var(--cinza-divisor);
+    padding: 40px;
+    text-align: center;
+    border-radius: 3px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.box-contato p {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.box-contato strong {
+    color: var(--dourado-principal);
+}
+
+/* ==========================================================================
+   BOTÃO DO WHATSAPP FLUTUANTE
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #ffffff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 26px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: #01070e;
+    border-top: 1px solid var(--cinza-divisor);
+    text-align: center;
+    padding: 35px 20px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.oab-texto {
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE-FIRST)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 150px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .navigation-menu ul {
+        gap: 20px;
+    }
+
+    .hero-section {
+        padding: 50px 10px;
+    }
+
+    .hero-container {
+        padding: 25px 15px;
+    }
+}
