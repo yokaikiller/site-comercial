@@ -167,36 +167,6 @@ p, li {
     transform: translateY(-1px);
 }
 
-/* ==========================================================================
-   BLOCO CENTRAL PRINCIPAL (MOLDURA HERO)
-   ========================================================================== */
-.hero-section {
-    background-color: var(--azul-escuro-topo);
-    background-image: radial-gradient(circle at center, #06203a 0%, #010b14 100%);
-    padding: 90px 20px;
-    text-align: center;
-    border-bottom: 1px solid var(--cinza-divisor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-container {
-    max-width: 850px;
-    background-color: rgba(3, 20, 36, 0.5); 
-    padding: 40px;
-    border-radius: 4px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-    border: 1px solid rgba(197, 160, 89, 0.1);
-}
-
-/* Tamanho proporcional do quadro principal da imagem */
-.main-logo-img {
-    max-width: 550px; 
-    width: 100%;
-    height: auto;
-    display: inline-block;
-}
 
 /* ==========================================================================
    SEÇÕES DE TEXTO E CONTEÚDO
